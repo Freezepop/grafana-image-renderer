@@ -50,10 +50,10 @@ After=syslog.target
 After=network.target
 
 [Service]
-EnvironmentFile={{ env_file }}
+EnvironmentFile=/home/grafana-image-renderer/.bash_profile
 Type=simple
-User=customer
-Group=customer
+User=grafana-image-renderer
+Group=grafana-image-renderer
 WorkingDirectory=/opt/grafana/grafana-image-renderer
 ExecStart=/usr/local/bin/gunicorn -w 10 -b 127.0.0.1:5000 grafana-image-renderer:app --timeout=120
 Restart=always
